@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Feature Blog</title>
+  <meta name="description" content="A modern blog template with images and enhanced features." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f9fafb;
+      --text:#111827;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --card:#ffffff;
+      --border:#e5e7eb;
+    }
+    body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    header{position:sticky;top:0;background:white;border-bottom:1px solid var(--border);z-index:50;padding:12px 24px;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-weight:700;font-size:20px;color:var(--accent)}
+    nav a{margin-left:16px;color:var(--text);text-decoration:none;font-weight:500}
+    nav a:hover{color:var(--accent)}
+
+    .hero{padding:48px 24px;text-align:center;background:linear-gradient(135deg,var(--accent),#9333ea);color:white}
+    .hero h1{font-size:40px;margin:0}
+    .hero p{margin-top:12px;font-size:18px;}
+
+    .container{max-width:1100px;margin:auto;padding:24px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+
+    .post{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:.2s;cursor:pointer}
+    .post:hover{transform:translateY(-3px)}
+    .post img{width:100%;height:200px;object-fit:cover;display:block}
+    .post .content{padding:16px}
+    .post h3{margin:8px 0;font-size:20px}
+    .post p{color:var(--muted);font-size:15px}
+
+    .post-page{display:none;margin-top:30px}
+    .post-page.active{display:block}
+    .post-banner{width:100%;max-height:400px;object-fit:cover;border-radius:12px;margin-bottom:20px}
+
+    footer{margin-top:40px;text-align:center;padding:24px;border-top:1px solid var(--border);color:var(--muted)}
+
+    .searchbar{margin-bottom:20px;display:flex;justify-content:center}
+    .searchbar input{width:100%;max-width:400px;padding:10px;border:1px solid var(--border);border-radius:8px}
+    .subscribe{background:#f3f4f6;padding:24px;border-radius:12px;text-align:center;margin:40px 0}
+    .subscribe input{padding:10px;width:70%;max-width:300px;border:1px solid var(--border);border-radius:8px;margin-right:8px}
+    .subscribe button{padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:white;font-weight:600;cursor:pointer}
+    .subscribe button:hover{opacity:.9}
+
+    @media(max-width:640px){.hero h1{font-size:28px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">My Feature Blog</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to My Blog</h1>
+    <p>Stories, tutorials, and insights with beautiful images ✨</p>
+  </section>
+
+  <main class="container">
+    <div class="searchbar">
+      <input type="text" id="search" placeholder="Search blog posts...">
+    </div>
+
+    <div class="grid" id="postGrid">
+      <div class="post" data-title="HTML Blog Setup" data-id="post1">
+        <img src="daa111ab-518d-4348-8fc1-ba4d85a45390.png" alt="Coding Blog Image">
+        <div class="content">
+          <h3>How to Create a Blog with Just HTML</h3>
+          <p>Learn how to build a simple, responsive blog layout with only HTML and CSS.</p>
+        </div>
+      </div>
+      <div class="post" data-title="UI Design Tips" data-id="post2">
+        <img src="e487b528-bd7c-4761-a419-8867d106edc0.png" alt="Design Blog Image">
+        <div class="content">
+          <h3>Top 5 UI Design Tips</h3>
+          <p>Enhance your website design with these practical tips for better user experience.</p>
+        </div>
+      </div>
+      <div class="post" data-title="Productivity Hacks" data-id="post3">
+        <img src="595b8024-135e-443c-9b8d-7066075c658d.png" alt="Productivity Blog Image">
+        <div class="content">
+          <h3>Daily Productivity Hacks</h3>
+          <p>Simple habits that boost your productivity and creativity.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Post Pages -->
+    <div id="post1" class="post-page">
+      <img class="post-banner" src="daa111ab-518d-4348-8fc1-ba4d85a45390.png" alt="HTML Blog">
+      <h2>How to Create a Blog with Just HTML</h2>
+      <p>This tutorial walks you through creating a simple blog using only HTML and CSS. No frameworks, no complex setup. Perfect for beginners!</p>
+    </div>
+
+    <div id="post2" class="post-page">
+      <img class="post-banner" src="e487b528-bd7c-4761-a419-8867d106edc0.png" alt="UI Design Tips">
+      <h2>Top 5 UI Design Tips</h2>
+      <p>Good UI is all about clarity and ease of use. In this post, we’ll cover five actionable tips to enhance your designs.</p>
+    </div>
+
+    <div id="post3" class="post-page">
+      <img class="post-banner" src="595b8024-135e-443c-9b8d-7066075c658d.png" alt="Productivity Hacks">
+      <h2>Daily Productivity Hacks</h2>
+      <p>Productivity doesn’t have to be hard. Try these daily habits to maximize your focus and creativity.</p>
+    </div>
+
+    <section class="subscribe">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Get the latest posts delivered straight to your inbox.</p>
+      <input type="email" placeholder="Enter your email">
+      <button>Subscribe</button>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> My Feature Blog — All Rights Reserved
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Search filter
+    const search = document.getElementById('search');
+    const posts = document.querySelectorAll('.post');
+    search.addEventListener('input', ()=>{
+      const q = search.value.toLowerCase();
+      posts.forEach(p=>{
+        p.style.display = p.dataset.title.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+
+    // Open individual post
+    const postGrid = document.getElementById('postGrid');
+    const postPages = document.querySelectorAll('.post-page');
+    postGrid.addEventListener('click', (e)=>{
+      const post = e.target.closest('.post');
+      if(!post) return;
+      const id = post.dataset.id;
+      postGrid.style.display = 'none';
+      search.style.display = 'none';
+      postPages.forEach(p=>p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    });
+  </script>
+</body>
+</html>
